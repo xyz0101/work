@@ -65,6 +65,9 @@ public class GameFrame extends JFrame {
 		timer.start();
 		setVisible(true);
 	}
+	public static void main(String[] args) {
+		new GameFrame();
+	}
 	//»­°å
 	class MyPaint extends JPanel{
 		@Override
