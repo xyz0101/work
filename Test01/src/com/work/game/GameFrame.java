@@ -20,9 +20,9 @@ public class GameFrame extends JFrame {
 	Block b = new Block();
 	//初始化音效
 	Music m = new Music();
-	AudioClip au=m.getAudio("H:\\javaproject\\Test01\\src\\music\\move.wav");
-	AudioClip au1=m.getAudio("H:\\javaproject\\Test01\\src\\music\\success.wav");
-	AudioClip au2=m.getAudio("H:\\javaproject\\Test01\\src\\music\\impact.wav");
+	AudioClip au=m.getAudio("C:\\Users\\Administrator\\git\\Work\\Test01\\src\\music\\move.wav");
+	AudioClip au1=m.getAudio("C:\\Users\\Administrator\\git\\Work\\Test01\\src\\music\\success.wav");
+	AudioClip au2=m.getAudio("C:\\Users\\Administrator\\git\\Work\\Test01\\src\\music\\impact.wav");
 	//得分
 	int source=0;
 	//方块类型以及方向
@@ -56,6 +56,7 @@ public class GameFrame extends JFrame {
 		jb2 = new JButton("退出游戏");
 		jb2.setBounds(180, 250, 100, 35);
 		jb2.addActionListener(my);
+		
 		p.add(jb);
 		p.add(jb1);
 		p.add(jb2);
@@ -128,6 +129,8 @@ public class GameFrame extends JFrame {
 					if((JButton)e.getSource()==jb1){
 						b.firstWall();
 						newBlock();
+						level=0;
+						timer.start();
 						p.requestFocus();
 						repaint();
 					}						
@@ -167,6 +170,7 @@ public class GameFrame extends JFrame {
 					System.out.println("左");
 					break;
 				case KeyEvent.VK_RIGHT:
+					
 					au.play();
 					right();
 					System.out.println("右");
@@ -228,6 +232,7 @@ public class GameFrame extends JFrame {
 				for(int j=0;j<4;j++){
 					if(b.shape[type][turn][i*4+j]==1&&wall[x+1+j][y+i]==1){
 						au2.play();
+						System.out.println(2323232);
 						return true;
 					}		
 					else if(b.shape[type][turn][i*4+j]==1&&wall[x+1+j][y+i]==2){
